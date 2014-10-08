@@ -41,9 +41,9 @@ if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
 
     sed -i -e "s/PORT/$SERVER_PORT/g" "$2".conf
 
-    scp -i insecure_key "$2".conf root@$(docker inspect --format="{{ .NetworkSettings.IPAddress }}" emakina-reverse-proxy):/etc/nginx/conf.d/
+    scp -i insecure_key "$2".conf root@$(docker inspect --format="{{ .NetworkSettings.IPAddress }}" contaxner-reverse-proxy):/etc/nginx/conf.d/
 
-    ssh -i insecure_key root@$(docker inspect --format="{{ .NetworkSettings.IPAddress }}" emakina-reverse-proxy) '/etc/init.d/nginx reload'
+    ssh -i insecure_key root@$(docker inspect --format="{{ .NetworkSettings.IPAddress }}" contaxner-reverse-proxy) '/etc/init.d/nginx reload'
 
     rm -f "$2".conf
 

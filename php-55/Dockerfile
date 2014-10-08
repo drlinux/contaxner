@@ -63,22 +63,4 @@ RUN tar zxvf ioncube_loaders_lin_x86-64.tar.gz
 
 RUN cp ioncube/ioncube_loader_lin_5.5.so /usr/lib/
 RUN rm -rf /usr/share/nginx/html/
-ADD index.php /data/www/index.php
 
-ADD www.conf /etc/php5/fpm/pool.d/www.conf
-
-ADD php.ini /etc/php5/fpm/php.ini
-
-ADD nginx-site.conf /etc/nginx/sites-available/default
-RUN sed -i -e 's/^listen =.*/listen = \/var\/run\/php5-fpm.sock/' /etc/php5/fpm/pool.d/www.conf
-
-RUN apt-get install -y screen
-RUN chmod 777 /var/run/screen
-
-EXPOSE 80
-
-EXPOSE 3306 
-
-#And Start
-
-CMD service mysql start; php5-fpm; nginx -c /etc/nginx/nginx.conf
