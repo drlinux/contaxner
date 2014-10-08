@@ -1,3 +1,7 @@
+# nginx + PHP5.5-FPM + MySQL on Docker
+#
+# VERSION               0.0.1
+
 FROM 		phusion/baseimage:0.9.12
 
 MAINTAINER 	Ibrahim Yılmaz (a.k.a dr.linux) <ibrahim@drlinux.org>
@@ -76,5 +80,5 @@ EXPOSE 80
 EXPOSE 3306 
 
 #And Start
-#
+
 CMD service mysql start; php5-fpm; nginx -c /etc/nginx/nginx.conf
