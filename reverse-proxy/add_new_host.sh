@@ -29,7 +29,8 @@ done
 
 add_new_domain(){
 
-if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
+
+    if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
 
 
     cp templates/proxy.conf "$2".conf
@@ -42,9 +43,15 @@ if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
 
     scp -i insecure_key "$2".conf root@$(docker inspect --format="{{ .NetworkSettings.IPAddress }}" emakina-reverse-proxy):/etc/nginx/conf.d/
 
+
     ssh -i insecure_key root@$(docker inspect --format="{{ .NetworkSettings.IPAddress }}" emakina-reverse-proxy) 'mkdir -p /var/log/nginx/log/; touch /var/log/nginx/log/'$1'.error.log; touch /var/log/nginx/log/'$1'.access.log; /etc/init.d/nginx reload'
 
+    docker commit -m "ADD new host : $1" $(docker inspect --format="{{ .Config.Hostname }}" emakina-reverse-proxy) emakina/nginx-reverse-proxy:latest
+
     rm -f "$2".conf
+
+    #let's create docker host container for the domain.
+
 
 
 
