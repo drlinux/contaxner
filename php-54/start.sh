@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo docker run -d -t -p 81:80 drlinux/nginx
+docker run -d  -i --name="contaxner-DOMAIN" -p PORT:80 -v ROOT:/var/www/DOMAIN -t contaxner/DOMAIN
