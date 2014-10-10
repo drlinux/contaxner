@@ -200,6 +200,7 @@ scm_type(){
         --title "SCM" \
         --menu "Please Choose the Project Files Source" 15 50 4 \
         Github "Get most recent code from Github" \
+        URL "Copy from an URL" \
         Git "Personal Git Repo" \
         SVN "Personal SVN Repo" 2>"${MENU_INPUT}"
 
@@ -222,6 +223,18 @@ scm_type(){
         rm -f $TEMP
 
         git clone $REPO_URL /data/www/$1
+
+    elif [ "$userscmselection" = 'URL' ]; then
+
+        tput clear
+
+        mkdir -p /data/www/$1
+
+        REPO_URL='http://www.magentocommerce.com/downloads/assets/1.9.0.1/magento-1.9.0.1.tar.gz'
+
+        cd /data/www/$1 && wget $REPO_URL && tar zxvf magento-1.9.0.1.tar.gz && mv magento/* . && rm -rf magento/ && rm -rf magento-1.9.0.1.tar.gz
+
+        tar zxvf magento-1.9.0.1.tar.gz
 
     elif [ "$userscmselection" = 'SVN' ]; then
 
@@ -252,7 +265,24 @@ container_settings(){
 
        cd /data/www/$1 && composer update
 
+    elif [ "$userselection" = 'Magento' ]; then
 
+
+
+
+        echo 'RUN chmod 0777 /var/www/'$1'/app/etc' >> ~/contaxner-dockerfiles/$1/Dockerfile
+        echo 'RUN chmod 0777 /var/www/'$1'/media' >> ~/contaxner-dockerfiles/$1/Dockerfile
+        echo 'RUN chmod 0777 /var/www/'$1'/media/xmlconnect' >> ~/contaxner-dockerfiles/$1/Dockerfile
+        echo 'RUN chmod 0777 /var/www/'$1'/media/xmlconnect/custom' >> ~/contaxner-dockerfiles/$1/Dockerfile
+        echo 'RUN chmod 0777 /var/www/'$1'/media/xmlconnect/custom/ok.gif' >> ~/contaxner-dockerfiles/$1/Dockerfile
+        echo 'RUN chmod 0777 /var/www/'$1'/media/xmlconnect/original' >> ~/contaxner-dockerfiles/$1/Dockerfile
+        echo 'RUN chmod 0777 /var/www/'$1'/media/xmlconnect/original/ok.gif' >> ~/contaxner-dockerfiles/$1/Dockerfile
+        echo 'RUN chmod 0777 /var/www/'$1'/media/xmlconnect/system' >> ~/contaxner-dockerfiles/$1/Dockerfile
+        echo 'RUN chmod 0777 /var/www/'$1'/media/xmlconnect/system/ok.gif' >> ~/contaxner-dockerfiles/$1/Dockerfile
+        echo 'RUN chmod 0777 /var/www/'$1'/media/dhl' >> ~/contaxner-dockerfiles/$1/Dockerfile
+        echo 'RUN chmod 0777 /var/www/'$1'/media/dhl/logo.jpg' >> ~/contaxner-dockerfiles/$1/Dockerfile
+        echo 'RUN chmod 0777 /var/www/'$1'/media/customer' >> ~/contaxner-dockerfiles/$1/Dockerfile
+        echo 'RUN chmod 0777 /var/www/'$1'/media/downloadable' >> ~/contaxner-dockerfiles/$1/Dockerfile
     fi
 
 

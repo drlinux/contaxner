@@ -6,8 +6,7 @@ FROM 		phusion/baseimage:0.9.12
 
 MAINTAINER 	Ibrahim Yılmaz (a.k.a dr.linux) <ibrahim@drlinux.org>
 
-VOLUME ["/data/mysql"]
-VOLUME ["/data/www"]
+VOLUME ["/data/mysql","/data/www"]
 
 ENV 		HOME /root
 # Set Language Environment
@@ -35,9 +34,12 @@ RUN add-apt-repository -y ppa:nginx/stable
 RUN apt-get update
 
 # Install MySQL server
+RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
+RUN echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
 RUN apt-get -y install mysql-server
-RUN sed -i "/^datadir*/ s|=.*|=/data/mysql|" /etc/mysql/my.cnf
-RUN chown -R mysql:mysql /data/mysql
+
+ADD etc/my_init.d/99_mysql_setup.sh /etc/my_init.d/99_mysql_setup.sh
+RUN chmod +x /etc/my_init.d/99_mysql_setup.sh
 
 # Install nginx
 RUN apt-get -y install nginx
@@ -51,6 +53,7 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN add-apt-repository -y ppa:ondrej/php5
 RUN apt-get update
 RUN apt-get install -y --force-yes php5-fpm php5-mysql php-apc php5-mcrypt php5-curl php5-gd php5-json php5-cli
+RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php5/fpm/php-fpm.conf
 RUN sed -i -e "s/short_open_tag = Off/short_open_tag = On/g" /etc/php5/fpm/php.ini
 
 
@@ -81,3 +84,13 @@ RUN  		/etc/my_init.d/00_regen_ssh_host_keys.sh
 RUN 		/usr/sbin/enable_insecure_key
 
 ADD 		nginx.sh /etc/service/nginx/run
+
+ADD 		php5-fpm.sh /etc/service/php5-fpm/run
+
+ADD 		mysql.sh /etc/service/mysql/run
+
+RUN 		chmod a+x /etc/service/nginx/run
+
+RUN 		chmod a+x /etc/service/php5-fpm/run
+
+RUN 		chmod a+x /etc/service/mysql/run
