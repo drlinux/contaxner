@@ -1,4 +1,4 @@
-# nginx + PHP5.5-FPM + MySQL on Docker
+# nginx + PHP5.5-FPM on Docker
 #
 # VERSION               0.0.1
 
@@ -6,7 +6,7 @@ FROM 		phusion/baseimage:0.9.12
 
 MAINTAINER 	Ibrahim Yılmaz (a.k.a dr.linux) <ibrahim@drlinux.org>
 
-VOLUME ["/data/mysql","/data/www"]
+VOLUME ["/data/www"]
 
 ENV 		HOME /root
 # Set Language Environment
@@ -33,14 +33,6 @@ RUN apt-get install -y vim
 RUN add-apt-repository -y ppa:nginx/stable
 RUN apt-get update
 
-# Install MySQL server
-RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
-RUN echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
-RUN apt-get -y install mysql-server
-
-ADD etc/my_init.d/99_mysql_setup.sh /etc/my_init.d/99_mysql_setup.sh
-RUN chmod +x /etc/my_init.d/99_mysql_setup.sh
-
 # Install nginx
 RUN apt-get -y install nginx
 
@@ -56,13 +48,8 @@ RUN apt-get install -y --force-yes php5-fpm php5-mysql php-apc php5-mcrypt php5-
 RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php5/fpm/php-fpm.conf
 RUN sed -i -e "s/short_open_tag = Off/short_open_tag = On/g" /etc/php5/fpm/php.ini
 
-
-
-
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
-
-
 
 # Configure nginx for PHP websites
 RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
@@ -87,10 +74,7 @@ ADD 		nginx.sh /etc/service/nginx/run
 
 ADD 		php5-fpm.sh /etc/service/php5-fpm/run
 
-ADD 		mysql.sh /etc/service/mysql/run
-
 RUN 		chmod a+x /etc/service/nginx/run
 
 RUN 		chmod a+x /etc/service/php5-fpm/run
 
-RUN 		chmod a+x /etc/service/mysql/run

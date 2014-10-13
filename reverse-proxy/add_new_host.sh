@@ -6,7 +6,7 @@ TEMP=/tmp/answer.$$
 MENU_INPUT=/tmp/menu.sh.$$
 MENU_OUTPUT=/tmp/output.sh.$$
 TEMP=/tmp/answer.$$
-
+MYSQL_DATABASE_PASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 12 | head -n 1)
 # if temp files exists, destroy`em all!
 
 [ -f $MENU_OUTPUT ] && rm $MENU_OUTPUT
@@ -14,7 +14,7 @@ TEMP=/tmp/answer.$$
 
 check_free_port(){
 
-    PORT=81
+    PORT=$1
 
 
     while true
@@ -46,7 +46,9 @@ add_new_domain(){
 
     DOMAIN=$1
 
-    FREE_PORT=$(check_free_port)
+    FREE_PORT=$(check_free_port 81)
+
+
     cp templates/proxy.conf "$2".conf
 
     sed -i -e "s/DOMAIN/$1/g" "$2".conf
@@ -61,6 +63,11 @@ add_new_domain(){
     ssh -i insecure_key root@$(docker inspect --format="{{ .NetworkSettings.IPAddress }}" contaxner-reverse-proxy) 'mkdir -p /var/log/nginx/log/; touch /var/log/nginx/log/'$1'.error.log; touch /var/log/nginx/log/'$1'.access.log; /etc/init.d/nginx reload'
 
     docker commit -m "ADD new host : $1" $(docker inspect --format="{{ .Config.Hostname }}" contaxner-reverse-proxy) contaxner/nginx-reverse-proxy:latest
+
+
+    ssh -i insecure_key root@$(docker inspect --format="{{ .NetworkSettings.IPAddress }}" contaxner-mysql-server) 'mysql -uroot -proot -e "CREATE DATABASE '$2'; CREATE USER '$2'@'\%' IDENTIFIED BY \'$MYSQL_DATABASE_PASSWORD\''; GRANT ALL PRIVILEGES ON '$2'.* TO '$2'@'\%' WITH GRANT OPTION; FLUSH PRIVILEGES;"'
+
+    docker commit -m "ADD new MySQL user and database : $1 : $MYSQL_DATABASE_PASSWORD" $(docker inspect --format="{{ .Config.Hostname }}" contaxner-mysql-server) contaxner/nginx-mysql-server:latest
 
     rm -f "$2".conf
 
@@ -86,7 +93,7 @@ add_new_domain(){
             --title "Project Type" \
             --menu "Please Choose the PHP Version" 15 50 4 \
             'PHP 5.5' "PHP 5.5 (Required)" \
-           'PHP 5.4' "PHP 5.4" 2>"${MENU_INPUT}"
+            'PHP 5.4' "PHP 5.4" 2>"${MENU_INPUT}"
 
         usersphpselection=$(<"${MENU_INPUT}")
 
@@ -180,7 +187,8 @@ project_type(){
         echo 'RUN apt-get install -y screen' >> ~/contaxner-dockerfiles/$1/Dockerfile
 
 
-        echo 'RUN chmod 777 /var/run/screen' >> ~/contaxner-dockerfiles/$1/Dockerfile
+        echo 'RUN chmod 0777 /var/run/screen' >> ~/contaxner-dockerfiles/$1/Dockerfile
+
 
         [ -f $MENU_OUTPUT ] && rm $MENU_OUTPUT
         [ -f $MENU_INPUT ] && rm $MENU_INPUT
@@ -234,14 +242,24 @@ scm_type(){
 
         cd /data/www/$1 && wget $REPO_URL && tar zxvf magento-1.9.0.1.tar.gz && mv magento/* . && rm -rf magento/ && rm -rf magento-1.9.0.1.tar.gz
 
-        tar zxvf magento-1.9.0.1.tar.gz
+        chmod 0777 /data/www/'$1'/media
+        chmod 0777 /data/www/'$1'/media/xmlconnect
+        chmod 0777 /data/www/'$1'/media/xmlconnect/custom
+        chmod 0777 /data/www/'$1'/media/xmlconnect/custom/ok.gif
+        chmod 0777 /data/www/'$1'/media/xmlconnect/original
+        chmod 0777 /data/www/'$1'/media/xmlconnect/original/ok.gif
+        chmod 0777 /data/www/'$1'/media/xmlconnect/system
+        chmod 0777 /data/www/'$1'/media/xmlconnect/system/ok.gif
+        chmod 0777 /data/www/'$1'/media/dhl
+        chmod 0777 /data/www/'$1'/media/dhl/logo.jpg
+        chmod 0777 /data/www/'$1'/media/customer
+        chmod 0777 /data/www/'$1'/media/downloadable
+
 
     elif [ "$userscmselection" = 'SVN' ]; then
 
 
         sudo apt-get install -y subversion
-
-
         svn checkout $REPO_URL /data/www/$1
 
 
@@ -256,39 +274,26 @@ container_settings(){
     echo 'EXPOSE 80' >> ~/contaxner-dockerfiles/$1/Dockerfile
 
 
-    echo 'EXPOSE 3306' >> ~/contaxner-dockerfiles/$1/Dockerfile
-
     #RUN composer update for Laravel project
 
     if [ "$userselection" = 'Laravel' ]; then
 
 
-       cd /data/www/$1 && composer update
+        cd /data/www/$1 && composer update
 
     elif [ "$userselection" = 'Magento' ]; then
 
+        echo 'ADD 		magento.sh /etc/service/magento/run' >> ~/contaxner-dockerfiles/$1/Dockerfile
 
+        echo 'RUN 		chmod a+x /etc/service/magento/run' >> ~/contaxner-dockerfiles/$1/Dockerfile
 
-
-        echo 'RUN chmod 0777 /var/www/'$1'/app/etc' >> ~/contaxner-dockerfiles/$1/Dockerfile
-        echo 'RUN chmod 0777 /var/www/'$1'/media' >> ~/contaxner-dockerfiles/$1/Dockerfile
-        echo 'RUN chmod 0777 /var/www/'$1'/media/xmlconnect' >> ~/contaxner-dockerfiles/$1/Dockerfile
-        echo 'RUN chmod 0777 /var/www/'$1'/media/xmlconnect/custom' >> ~/contaxner-dockerfiles/$1/Dockerfile
-        echo 'RUN chmod 0777 /var/www/'$1'/media/xmlconnect/custom/ok.gif' >> ~/contaxner-dockerfiles/$1/Dockerfile
-        echo 'RUN chmod 0777 /var/www/'$1'/media/xmlconnect/original' >> ~/contaxner-dockerfiles/$1/Dockerfile
-        echo 'RUN chmod 0777 /var/www/'$1'/media/xmlconnect/original/ok.gif' >> ~/contaxner-dockerfiles/$1/Dockerfile
-        echo 'RUN chmod 0777 /var/www/'$1'/media/xmlconnect/system' >> ~/contaxner-dockerfiles/$1/Dockerfile
-        echo 'RUN chmod 0777 /var/www/'$1'/media/xmlconnect/system/ok.gif' >> ~/contaxner-dockerfiles/$1/Dockerfile
-        echo 'RUN chmod 0777 /var/www/'$1'/media/dhl' >> ~/contaxner-dockerfiles/$1/Dockerfile
-        echo 'RUN chmod 0777 /var/www/'$1'/media/dhl/logo.jpg' >> ~/contaxner-dockerfiles/$1/Dockerfile
-        echo 'RUN chmod 0777 /var/www/'$1'/media/customer' >> ~/contaxner-dockerfiles/$1/Dockerfile
-        echo 'RUN chmod 0777 /var/www/'$1'/media/downloadable' >> ~/contaxner-dockerfiles/$1/Dockerfile
     fi
 
 
     #And Start the services
 
-    echo 'CMD service mysql start; php5-fpm; nginx -c /etc/nginx/nginx.conf' >> ~/contaxner-dockerfiles/$1/Dockerfile
+    echo 'CMD php5-fpm; nginx -c /etc/nginx/nginx.conf' >> ~/contaxner-dockerfiles/$1/Dockerfile
+
 
     [ -f $MENU_OUTPUT ] && rm $MENU_OUTPUT
 
@@ -327,7 +332,15 @@ container_settings(){
     #Run the container!
 
     /bin/bash start.sh
-    echo -e "Bitti ya la!"
+
+    echo -e "Your container generated and running."
+    echo -e "#####################################"
+    echo -e "           MySQL User      : $2            "
+    echo -e "           MySQL Password  : $MYSQL_DATABASE_PASSWORD "
+    echo -e "           MySQL Database  : $2            "
+    echo -e "           MySQL Server    : localhost     "
+    echo -e "#####################################"
+
     exit
 }
 

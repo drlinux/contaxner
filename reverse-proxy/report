@@ -1,0 +1,118 @@
+ * Reloading nginx configuration nginx
+   ...done.
+63d401c3fa930347e0c475e9483de8fafd58ffd8f958b57715f687c6700eb3e4
+ba3c937fe4496a807c8c9be12b7315c7164f7fabad5d315d6af26dad07dbb73a
+[?1049h[1;24r(B[m[4l[?7h[?1h=[?1000h[39;49m[?1h=[?1h=[39;49m(B[m[H[2J[21d(B[0;1m[36m[44m[J[H[K
+[K
+[K
+[K[5;14H[1K (0[0;1m[37m[47mlqqqqqqqqqqqqqqqqq(B[0;1m[34m[47mProject Type(0[0;1m[37m[47mqqqqqqqqqqqqqqqqqqq(0[0m[30m[47mk(B[0;1m[36m[44m[K[6;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m Please Choose the PHP Version[18X[6;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[7;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mlqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq(0[0;1m[37m[47mk(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[8;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0m[30m[47m        (B[0;1m[31m[44mP[33m[44mHP 5.5(B[0m[30m[47m  (B[0;1m[37m[44mPHP 5.5 (Required)(B[0m[30m[47m         (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[9;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0m[30m[47m        [31m[47mP(B[0;1m[34m[47mHP 5.4(B[0m[30m[47m  PHP 5.4[20X[9;62H(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[10;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[37m[47m[44X[10;62H(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[11;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[37m[47m[44X[11;62H(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[12;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mm(0[0;1m[37m[47mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[13;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m[48X[13;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[14;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m[48X[14;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[15;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m[48X[15;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[16;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m[48X[16;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[17;14H[1K (0[0;1m[37m[47mtqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq(0[0m[30m[47mu(B[0;1m[30m[40m  [36m[44m[K[18;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m[48X[18;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[19;14H[1K (0[0;1m[37m[47mm(0[0m[30m[47mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj(B[0;1m[30m[40m  [36m[44m[K[20;16H[1K [30m[40m[50X[20;67H[36m[44m[K[12;63H[39;49m(B[m[18;27H(B[0;1m[37m[44m<[33m[44m  [37m[44mO[33m[44mK  [37m[44m>[41G(B[0m[30m[47m<[31m[47mC(B[0;1m[30m[47mancel(B[0m[30m[47m>[18;30H[39;49m(B[m[5d(B[0;1m[36m[44m[J[24;80H[39;49m(B[m[?1000l[24;1H[?1049l[?1l>[?1049h[1;24r(B[m[4l[?7h[?1h=[?1000h[39;49m[?1h=[?1h=[39;49m(B[m[H[2J[21d(B[0;1m[36m[44m[J[H[K
+[K
+[K
+[K[5;14H[1K (0[0;1m[37m[47mlqqqqqqqqqqqqqqqqq(B[0;1m[34m[47mProject Type(0[0;1m[37m[47mqqqqqqqqqqqqqqqqqqq(0[0m[30m[47mk(B[0;1m[36m[44m[K[6;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m Please Choose the Project Type[17X[6;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[7;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mlqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq(0[0;1m[37m[47mk(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[8;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0m[30m[47m   (B[0;1m[31m[44mM[33m[44magento(B[0m[30m[47m     (B[0;1m[37m[44mMagento Project(B[0m[30m[47m[14X[8;62H(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[9;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0m[30m[47m   [31m[47mP(B[0;1m[34m[47mrestashop(B[0m[30m[47m  Prestashop Project           (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[10;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0m[30m[47m   [31m[47mW(B[0;1m[34m[47mordpress(B[0m[30m[47m   Wordpress Project            (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[11;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0m[30m[47m   [31m[47mL(B[0;1m[34m[47maravel(B[0m[30m[47m     Laravel Project[14X[11;62H(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[12;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mm(0[0;1m[37m[47mqqqq(B[0;1m[32m[47m↓(+)(0[0;1m[37m[47mqqqqqqqqqqqqqqqqqqqqqqqqqqqq(B[0;1m[34m[47m80%(0[0;1m[37m[47mqqqqqj(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[13;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m[48X[13;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[14;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m[48X[14;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[15;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m[48X[15;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[16;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m[48X[16;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[17;14H[1K (0[0;1m[37m[47mtqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq(0[0m[30m[47mu(B[0;1m[30m[40m  [36m[44m[K[18;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m[48X[18;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[19;14H[1K (0[0;1m[37m[47mm(0[0m[30m[47mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj(B[0;1m[30m[40m  [36m[44m[K[20;16H[1K [30m[40m[50X[20;67H[36m[44m[K[12;57H[39;49m(B[m[18;27H(B[0;1m[37m[44m<[33m[44m  [37m[44mO[33m[44mK  [37m[44m>[41G(B[0m[30m[47m<[31m[47mC(B[0;1m[30m[47mancel(B[0m[30m[47m>[18;30H[39;49m(B[m[5d(B[0;1m[36m[44m[J[24;80H[39;49m(B[m[?1000l[24;1H[?1049l[?1l>[?1049h[1;24r(B[m[4l[?7h[?1h=[?1000h[39;49m[?1h=[?1h=[39;49m(B[m[H[2J[21d(B[0;1m[36m[44m[J[H[K
+[K
+[K
+[K[5;14H[1K (0[0;1m[37m[47mlqqqqqqqqqqqqqqqqqqqqq(B[0;1m[34m[47mSCM(0[0;1m[37m[47mqqqqqqqqqqqqqqqqqqqqqqqq(0[0m[30m[47mk(B[0;1m[36m[44m[K[6;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m Please Choose the Project Files Source         (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[7;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mlqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq(0[0;1m[37m[47mk(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[8;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0m[30m[47m  (B[0;1m[31m[44mG[33m[44mithub(B[0m[30m[47m  (B[0;1m[37m[44mGet most recent code from Github(B[0m[30m[47m  (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[9;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0m[30m[47m  [31m[47mU(B[0;1m[34m[47mRL(B[0m[30m[47m     Copy from an URL[18X[9;62H(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[10;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0m[30m[47m  [31m[47mG(B[0;1m[34m[47mit(B[0m[30m[47m     Personal Git Repo[17X[10;62H(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[11;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0m[30m[47m  [31m[47mS(B[0;1m[34m[47mVN(B[0m[30m[47m     Personal SVN Repo[17X[11;62H(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[12;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mm(0[0;1m[37m[47mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj(B[0m[30m[47m (0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[13;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m[48X[13;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[14;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m[48X[14;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[15;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m[48X[15;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[16;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m[48X[16;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[17;14H[1K (0[0;1m[37m[47mtqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq(0[0m[30m[47mu(B[0;1m[30m[40m  [36m[44m[K[18;14H[1K (0[0;1m[37m[47mx(B[0m[30m[47m[48X[18;64H(0[0m[30m[47mx(B[0;1m[30m[40m  [36m[44m[K[19;14H[1K (0[0;1m[37m[47mm(0[0m[30m[47mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj(B[0;1m[30m[40m  [36m[44m[K[20;16H[1K [30m[40m[50X[20;67H[36m[44m[K[12;63H[39;49m(B[m[18;27H(B[0;1m[37m[44m<[33m[44m  [37m[44mO[33m[44mK  [37m[44m>[41G(B[0m[30m[47m<[31m[47mC(B[0;1m[30m[47mancel(B[0m[30m[47m>[18;30H[39;49m(B[m[?1000l[24;1H[?1049l[?1l>Step 0 : FROM   phusion/baseimage:0.9.12
+ ---> 07af6fd443d3
+Step 1 : MAINTAINER  Ibrahim Yılmaz (a.k.a dr.linux) <ibrahim@drlinux.org>
+ ---> Using cache
+ ---> a2589d3cef12
+Step 2 : VOLUME ["/data/www"]
+ ---> Using cache
+ ---> 2e2524e22bab
+Step 3 : ENV   HOME /root
+ ---> Using cache
+ ---> a6e80b0a28d1
+Step 4 : RUN   apt-get install -y language-pack-en
+ ---> Using cache
+ ---> adf700bc4383
+Step 5 : ENV   LANGUAGE en_US.UTF-8
+ ---> Using cache
+ ---> 13daac9d4968
+Step 6 : ENV   LANG en_US.UTF-8
+ ---> Using cache
+ ---> e0d17ce18f69
+Step 7 : ENV   LC_ALL en_US.UTF-8
+ ---> Using cache
+ ---> b6c8355fd897
+Step 8 : RUN   locale-gen en_US.UTF-8
+ ---> Using cache
+ ---> e3735a9b24a2
+Step 9 : RUN   dpkg-reconfigure locales
+ ---> Using cache
+ ---> 8833750feb8a
+Step 10 : ENV   DEBIAN_FRONTEND noninteractive
+ ---> Using cache
+ ---> 6dde2d58a47b
+Step 11 : RUN apt-get update
+ ---> Using cache
+ ---> 23d6e19b738e
+Step 12 : RUN apt-get install -y curl wget git subversion imagemagick
+ ---> Using cache
+ ---> f96b0d53efd2
+Step 13 : RUN apt-get install -y python-software-properties
+ ---> Using cache
+ ---> d104d150511a
+Step 14 : RUN apt-get install -y vim
+ ---> Using cache
+ ---> a9b24b7859c3
+Step 15 : RUN add-apt-repository -y ppa:nginx/stable
+ ---> Using cache
+ ---> 31bb506d22ec
+Step 16 : RUN apt-get update
+ ---> Using cache
+ ---> 32260a4e9af3
+Step 17 : RUN apt-get -y install nginx
+ ---> Using cache
+ ---> 7e2589563660
+Step 18 : RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+ ---> Using cache
+ ---> b4840e758bdd
+Step 19 : RUN add-apt-repository -y ppa:ondrej/php5
+ ---> Using cache
+ ---> b006c95f3f28
+Step 20 : RUN apt-get update
+ ---> Using cache
+ ---> 382f3a866025
+Step 21 : RUN apt-get install -y --force-yes php5-fpm php5-mysql php-apc php5-mcrypt php5-curl php5-gd php5-json php5-cli
+ ---> Using cache
+ ---> 58674593b341
+Step 22 : RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php5/fpm/php-fpm.conf
+ ---> Using cache
+ ---> 9b74e670fe1a
+Step 23 : RUN sed -i -e "s/short_open_tag = Off/short_open_tag = On/g" /etc/php5/fpm/php.ini
+ ---> Using cache
+ ---> 49c3d3af57ac
+Step 24 : RUN curl -sS https://getcomposer.org/installer | php
+ ---> Using cache
+ ---> 6a1c87d58503
+Step 25 : RUN mv composer.phar /usr/local/bin/composer
+ ---> Using cache
+ ---> a10dfa735bea
+Step 26 : RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
+ ---> Using cache
+ ---> f03676557507
+Step 27 : RUN echo "max_input_vars = 10000;" >> /etc/php5/fpm/php.ini
+ ---> Using cache
+ ---> 1ba8e8d709e2
+Step 28 : RUN echo "date.timezone = Europe/Istanbul;" >> etc/php5/fpm/php.ini
+ ---> Using cache
+ ---> 3eb9e65ab404
+Step 29 : RUN chown -R www-data:www-data /data/www
+ ---> Using cache
+ ---> 952a8acb2fac
+Step 30 : RUN cd /usr/local
+ ---> Using cache
+ ---> d6afbe0c3e31
+Step 31 : RUN wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
+ ---> Using cache
+ ---> 9670051ba559
+Step 32 : RUN tar zxvf ioncube_loaders_lin_x86-64.tar.gz
+ ---> Using cache
+ ---> 1931b4b66a2d
+Step 33 : RUN cp ioncube/ioncube_loader_lin_5.5.so /usr/lib/
+ ---> Using cache
+ ---> a1b5abb43680
+Step 34 : RUN rm -rf /usr/share/nginx/html/
+ ---> Using cache
+ ---> 089133e6e2f1
+Step 35 : RUN    /etc/my_init.d/00_regen_ssh_host_keys.sh
